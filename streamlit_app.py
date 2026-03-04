@@ -1,29 +1,20 @@
 import streamlit as st
 import matplotlib.pyplot as plt
+import numpy as np
+import time
 
-# Datos de ejemplo
-y_coordinate = -125
+st.title("🎉 Dibujando tu tarta...")
 
-# Función para dibujar círculo (equivalente a turtle)
-def draw_circle(ax, fill_color, border_color, x, y, radius):
-    circle = plt.Circle((x, y), radius, facecolor=fill_color, edgecolor=border_color, linewidth=3)
-    ax.add_patch(circle)
+fig, ax = plt.subplots()
+ax.set_xlim(-5, 5)
+ax.set_ylim(-5, 5)
 
-st.title("Dibujo estilo Turtle en Streamlit")
+x = np.linspace(-3, 3, 100)
+y = np.zeros(100)
 
-# Botón para dibujar
-if st.button("Dibujar círculos"):
-    fig, ax = plt.subplots(figsize=(6,6))
-    
-    # Ajustes del canvas
-    ax.set_xlim(-200, 200)
-    ax.set_ylim(-200, 200)
-    ax.set_aspect('equal')
-    ax.axis('off')  # Oculta ejes
+line, = ax.plot([], [])
 
-    # Ejemplo de círculos
-    draw_circle(ax, fill_color="red", border_color="black", x=0, y=y_coordinate, radius=50)
-    draw_circle(ax, fill_color="blue", border_color="green", x=100, y=y_coordinate+50, radius=30)
-    draw_circle(ax, fill_color="yellow", border_color="orange", x=-100, y=y_coordinate+100, radius=40)
-    
+for i in range(len(x)):
+    line.set_data(x[:i], y[:i])
     st.pyplot(fig)
+    time.sleep(0.02)
