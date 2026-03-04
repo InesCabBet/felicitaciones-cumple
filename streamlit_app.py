@@ -53,7 +53,7 @@ function writeMessage() {
     ctx.font = "30px Comic Sans MS";
     ctx.fillStyle = "purple";
     ctx.textAlign = "center";
-    ctx.fillText("Happy Birthday!", 250, 80);
+    ctx.fillText("FELICIDADES, CLARA!", 250, 80);
 }
 
 // Run animation
