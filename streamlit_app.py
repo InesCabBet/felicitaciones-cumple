@@ -9,7 +9,6 @@ st.set_page_config(page_title="FELIZ CUMPLEAÑOS 🎉", layout="centered")
 st.title("🎉 !FELIZ CUMPLEAÑOS!")
 st.balloons()
 
-st.sleep(0.5)
 
 components.html("""
 <canvas id="cakeCanvas" width="500" height="400"></canvas>
